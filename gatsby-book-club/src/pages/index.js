@@ -31,7 +31,7 @@ const IndexPage = props => {
           bookTitle={edge.node.title}
           bookSummary={edge.node.summary}
           authorName={edge.node.author.name}
-          bookCover= {edge.node.imgUrl}
+          bookCover={edge.node.localImage.publicURL}
         >
           <LinkButton>
             <Link to={`/book/${edge.node.id}`}>Join Conversation</Link>
@@ -50,7 +50,9 @@ export const query = graphql`
           id
           title
           summary
-          imgUrl
+          localImage {
+            publicURL
+          }
           author {
             id
             name
