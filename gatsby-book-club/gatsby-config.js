@@ -5,6 +5,7 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     {
       resolve: "gatsby-firesource",
       options: {
@@ -16,6 +17,7 @@ module.exports = {
             map: doc => ({
               title: doc.title,
               summary: doc.summary,
+              imgUrl: doc.imgUrl,
               author___NODE: doc.author.id,
             }),
           },
