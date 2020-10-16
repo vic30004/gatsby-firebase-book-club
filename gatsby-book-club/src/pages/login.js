@@ -1,9 +1,8 @@
 import React, { useState, useContext } from "react"
 import { Link } from "gatsby"
 import { FirebaseContext } from "../components/Firebase"
-import { Form } from "../components/common/Form"
-import { Input } from "../components/common/Input"
-import { Button } from '../components/common/Button'
+import { Form, Input, Button } from "../components/common"
+
 
 const Login = () => {
   const [formData, setFormData] = useState({

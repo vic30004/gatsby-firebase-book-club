@@ -41,10 +41,15 @@ const UserInfo = styled.div`
 `
 
 const LoginLink = styled.div`
-margin:auto 0;
->a{
-  color:#ffff;
-}
+  margin: auto 0;
+  > a {
+    color: #ffff;
+  }
+`
+const Divider = styled.span`
+  margin: 0 8px;
+  padding-right: 1px;
+  background-color: #ddd;
 `
 
 const Header = ({ siteTitle }) => {
@@ -72,6 +77,8 @@ const Header = ({ siteTitle }) => {
           {(!user || !user.email) && (
             <LoginLink>
               <Link to="/login">Login</Link>
+              <Divider />
+              <Link to="/register">Register</Link>
             </LoginLink>
           )}
         </div>
