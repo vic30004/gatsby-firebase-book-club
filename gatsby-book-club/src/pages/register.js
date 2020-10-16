@@ -1,6 +1,6 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { Form, Input, Button } from "../components/common"
-
+import { FirebaseContext } from "../components/Firebase"
 const Register = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -8,6 +8,7 @@ const Register = () => {
     confirmedPassword: "",
   })
 
+  const { firebase } = useContext(FirebaseContext)
   const { email, password, confirmedPassword } = formData
   const onChange = e => {
     e.persist()
@@ -16,7 +17,15 @@ const Register = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    console.log('hello')
+    if (password === confirmedPassword) {
+      firebase.register({
+        email: email,
+        password: password,
+      })
+      for (let x in formData) {
+        formData[x] = ""
+      }
+    }
   }
   return (
     <Form onSubmit={e => handleSubmit(e)}>
