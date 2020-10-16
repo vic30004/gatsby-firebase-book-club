@@ -5,14 +5,14 @@ import {graphql} from 'gatsby'
 const BookTemplate = props => {
   const { title, summary,author,localImage } = props.data.book
   return (
-    <Layout>
+    <section>
       <BookItem
         authorName={author.name}
         bookSummary={summary}
         bookTitle={title}
         bookCover={localImage.childImageSharp.fixed}
       />
-    </Layout>
+    </section>
   )
 }
 
